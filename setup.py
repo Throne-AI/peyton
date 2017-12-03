@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 
 
 PACKAGE_NAME = 'peyton'
-VERSION = '0.1.5'
+VERSION = '0.1.6'
 
 
 setup(name=PACKAGE_NAME,

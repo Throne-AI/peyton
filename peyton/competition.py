@@ -117,6 +117,8 @@ class Competition(object):
         except KeyError:
             raise KeyError('Could not find probability (team_1_prob, team_2_prob) or ID columns (id) in your submitted DataFrame')
         
+        final_df.index = [str(i) for i in final_df.index] # str format because of json parsing differences
+
         self.api.headers['X-PROB-SUBMISSION'] = json.dumps(final_df.to_dict())
 
         result = requests.get('%s%s' % (self.api.BASE_URL, 'competition/submit/'), headers=self.api.headers)
