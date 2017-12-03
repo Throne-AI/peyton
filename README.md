@@ -14,7 +14,7 @@ Peyton is developed for Python 3.5 onwards. The recommended way to
 install peyton is via <a href="https://pypi.python.org/pypi/pip">pip</a>.
 
 ```
-   pip install [xxx]
+   pip install peyton
 ```
 
 The <a href="http://docs.python-guide.org/en/latest/starting/installation">Hitchhiker's Guide to Python</a> has details on how to install Python and pip.
@@ -61,7 +61,7 @@ throne.omaha()
 
 We will look to provide documentation for the API once we expand its capabilities. 
 
-**Please note that due to throttling limits you should SAVE your historical and competition data rather than reloading each time you run a script or Notebook.**
+**Please note that due to throttling limits you should SAVE your historical and competition data rather than reloading from our servers each time you run a script or Notebook.**
 
 Peyton Discussion and Support
 ---------------------------
