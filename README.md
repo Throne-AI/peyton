@@ -61,7 +61,7 @@ We will look to provide documentation for the API once we expand its capabilitie
 
 **Please note that due to throttling limits you should SAVE your historical and competition data rather than reloading from our servers each time you run a script or Notebook.**
 
-Peyton Discussion and Support
+Discussion and Support
 ---------------------------
 
 Please consult our Slack Channel at https://throneai.slack.com. For an invite, go to your profile pack and click 'Slack Invite'.
