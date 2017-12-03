@@ -3,8 +3,6 @@
 Peyton: Throne.ai API
 ===================================
 
-**Note : this library is yet to be formally released, in case you are viewing this repository early!** 
-
 **Peyton** is a Python library that allows you to interact with the <a href="https://www.throne.ai">Throne.ai</a> platform for sports prediction. From this library, you can download historical and competition data, user ranking data, and submit predictions.
 
 Installation
