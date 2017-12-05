@@ -26,6 +26,11 @@ class Competition(object):
         When the user calls, we set the competition name
         """
 
+        if hasattr(self, 'competition'):
+            if self.competition != competition_name:
+                del self.historical_data
+                del self.competition_data
+                
         self.competition = competition_name
         self.api.headers['X-COMPETITION-NAME'] = self.competition
 
@@ -110,10 +115,17 @@ class Competition(object):
         Submits predictions for upcoming games
         """
         try:
-            if 'team_tie_prob' not in df.columns:
-                final_df = df[['id', 'team_1_prob', 'team_2_prob']]
+            if 'confidence' in df.columns:
+                if 'team_tie_prob' not in df.columns:
+                    final_df = df[['id', 'team_1_prob', 'team_2_prob', 'confidence']]
+                else:
+                    final_df = df[SUBMISSION_ROWS_TO_EXTRACT + ['confidence']]    
             else:
-                final_df = df[SUBMISSION_ROWS_TO_EXTRACT]
+                if 'team_tie_prob' not in df.columns:
+                    final_df = df[['id', 'team_1_prob', 'team_2_prob']]
+                else:
+                    final_df = df[SUBMISSION_ROWS_TO_EXTRACT]
+
         except KeyError:
             raise KeyError('Could not find probability (team_1_prob, team_2_prob) or ID columns (id) in your submitted DataFrame')
         

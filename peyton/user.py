@@ -67,7 +67,7 @@ class User(object):
             self.get_performance()
 
         try:
-            self.edge_df.plot.bar(rot=0); plt.axhline(0, color='k'); plt.title("Log Loss Difference: negative values are good"); plt.show()
+            self.edge_df.plot.bar(rot=0); plt.axhline(0, color='k'); plt.title("Edge for Competitions"); plt.show()
         except AttributeError:
             raise AttributeError('You have no records in any competition')
 
