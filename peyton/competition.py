@@ -17,7 +17,7 @@ class Competition(object):
 
     def __init__(self, api):
         """
-        Contains methods for retrieving user based data
+        Contains methods for retrieving competition based data
         """
         self.api = api # Throne API instance with auth information
 
@@ -38,11 +38,11 @@ class Competition(object):
 
     def get_historical_data(self, file_dir=None):
         """
-        Retrieves User XP
+        Retrieves and sets historical data for the competition.
 
         Returns
         --------
-        int - the XP of the user
+        self.historical_data - the competition's historical data
         """
 
         if hasattr(self, 'historical_data'):
@@ -75,11 +75,11 @@ class Competition(object):
 
     def get_competition_data(self, file_dir=None):
         """
-        Retrieves User XP
+        Retrieves and sets upcoming data for the competition.
 
         Returns
         --------
-        int - the XP of the user
+        self.competition_data - the competition's historical data
         """
 
         if hasattr(self, 'competition_data'):
