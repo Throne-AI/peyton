@@ -28,9 +28,15 @@ class Competition(object):
 
         if hasattr(self, 'competition'):
             if self.competition != competition_name:
-                del self.historical_data
-                del self.competition_data
-                
+                try:
+                    del self.historical_data
+                except AttributeError:  # historical data has not been fetched
+                    pass
+                try:
+                    del self.competition_data
+                except AttributeError:  # competition data has not been fetched
+                    pass
+
         self.competition = competition_name
         self.api.headers['X-COMPETITION-NAME'] = self.competition
 
@@ -119,7 +125,7 @@ class Competition(object):
                 if 'team_tie_prob' not in df.columns:
                     final_df = df[['id', 'team_1_prob', 'team_2_prob', 'confidence']]
                 else:
-                    final_df = df[SUBMISSION_ROWS_TO_EXTRACT + ['confidence']]    
+                    final_df = df[SUBMISSION_ROWS_TO_EXTRACT + ['confidence']]
             else:
                 if 'team_tie_prob' not in df.columns:
                     final_df = df[['id', 'team_1_prob', 'team_2_prob']]
@@ -128,7 +134,7 @@ class Competition(object):
 
         except KeyError:
             raise KeyError('Could not find probability (team_1_prob, team_2_prob) or ID columns (id) in your submitted DataFrame')
-        
+
         final_df.index = [str(i) for i in final_df.index] # str format because of json parsing differences
 
         self.api.headers['X-PROB-SUBMISSION'] = json.dumps(final_df.to_dict())
