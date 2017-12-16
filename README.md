@@ -60,8 +60,8 @@ my_lineups_data = throne.lineups_data
 
 # Merging datasources
 import pandas as pd
-game_statistics_df = pd.merge(my_historical_data, my_game_statistics_data) # get game statistics data alongside results data
-lineups_df = pd.merge(my_historical_data, my_lineups_data) # get lineups data alongside results data
+game_statistics_df = pd.merge(my_historical_data, my_game_statistics_data)
+lineups_df = pd.merge(my_historical_data, my_lineups_data)
 
 # Get players data
 players_data = throne.competition('NFL').get_players_data()
@@ -75,8 +75,7 @@ throne.omaha()
 
 We will look to provide documentation for the API once we expand its capabilities. 
 
-**Please note that due to throttling limits you should SAVE your historical and competition data rather than reloading from our servers each time you run a script or Notebook 
-if you are retrieving data for development**
+**Note : if you are looking to reuse data for development, then SAVE it rather than reloading from the API each time you run a script or Notebook. Otherwise you could end up locked out!**
 
 Discussion and Support
 ---------------------------
