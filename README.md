@@ -44,19 +44,19 @@ throne.user.plot_edge()
 
 # Get historical data for a competition
 throne.competition('NFL').get_historical_data()
-my_historical_data = throne.historical_data
+my_historical_data = throne.competition.historical_data
 
 # Get competition data for a competition
 throne.competition('NFL').get_competition_data()
-my_competition_data = throne.competition_data
+my_competition_data = throne.competition.competition_data
 
 # Get game statistics data for a competition
 throne.competition('NFL').get_game_statistics_data()
-my_game_statistics_data = throne.game_statistics_data
+my_game_statistics_data = throne.competition.game_statistics_data
 
 # Get lineups data for a competition
 throne.competition('NFL').get_lineups_data()
-my_lineups_data = throne.lineups_data
+my_lineups_data = throne.competition.lineups_data
 
 # Merging datasources
 import pandas as pd
