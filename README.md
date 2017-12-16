@@ -3,7 +3,7 @@
 Peyton: Throne.ai API
 ===================================
 
-**Peyton** is a Python library that allows you to interact with the <a href="https://www.throne.ai">Throne.ai</a> platform for sports prediction. From this library, you can download historical and competition data, user ranking data, and submit predictions.
+**Peyton** is a Python library that allows you to interact with the <a href="https://www.throne.ai">Throne.ai</a> platform for sports prediction. From this library, you can download historical and competition data, user ranking data, game statistics data, lineups data, and submit predictions.
 
 Installation
 ------------
@@ -50,6 +50,22 @@ my_historical_data = throne.historical_data
 throne.competition('NFL').get_competition_data()
 my_competition_data = throne.competition_data
 
+# Get game statistics data for a competition
+throne.competition('NFL').get_game_statistics_data()
+my_game_statistics_data = throne.game_statistics_data
+
+# Get lineups data for a competition
+throne.competition('NFL').get_lineups_data()
+my_lineups_data = throne.lineups_data
+
+# Merging datasources
+import pandas as pd
+game_statistics_df = pd.merge(my_historical_data, my_game_statistics_data) # get game statistics data alongside results data
+lineups_df = pd.merge(my_historical_data, my_lineups_data) # get lineups data alongside results data
+
+# Get players data
+players_data = throne.competition('NFL').get_players_data()
+
 # Submit predictions 
 throne.competition('NFL').submit(my_submission_df)
 
@@ -59,7 +75,8 @@ throne.omaha()
 
 We will look to provide documentation for the API once we expand its capabilities. 
 
-**Please note that due to throttling limits you should SAVE your historical and competition data rather than reloading from our servers each time you run a script or Notebook.**
+**Please note that due to throttling limits you should SAVE your historical and competition data rather than reloading from our servers each time you run a script or Notebook 
+if you are retrieving data for development**
 
 Discussion and Support
 ---------------------------

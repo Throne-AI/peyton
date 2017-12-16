@@ -44,8 +44,8 @@ class User(object):
         for comp_key, comp_values in content.items():
             if comp_key == 'total':
                 continue
-
-            self.score_dfs[comp_key] = pd.DataFrame(content[comp_key]['score_series'])
+                
+            self.score_dfs[comp_key] = pd.DataFrame(content[comp_key]['score_series'][1:])
             self.score_dfs[comp_key].columns = ['Throne Score']
             self.score_dfs[comp_key].index = [datetime.datetime.strptime(date, '%Y-%m-%dT%H:%M:%S') for date in content[comp_key]['score_dates']]
 
